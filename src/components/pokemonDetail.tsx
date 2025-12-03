@@ -32,14 +32,14 @@ export function PokemonDetail() {
         }
 
         // --- Fetch de TOUTES les évolutions en parallèle
-        const evolutionIDs = data.apiEvolutions.map((evo: { name: string; pokedexId: number })=> (evo.pokedexId));
-        
+        const evolutionIDs = data.apiEvolutions.map((evo: { name: string; pokedexId: number }) => (evo.pokedexId));
+
         const evolutionsData = await Promise.all(
           evolutionIDs.map((id: number) => getPokemon(id))
         );
 
         setEvolutions(evolutionsData);
-        
+
       } catch (err) {
         setPokemonDetail(null);
         setEvolutions([]);
@@ -57,11 +57,16 @@ export function PokemonDetail() {
         <div className="pokemon-detail">
           <p>n°{pokemonDetail.pokedexId}</p>
           <img src={pokemonDetail.image} alt={pokemonDetail.name} />
-          <h2>{pokemonDetail.name}</h2> 
-        {pokemonDetail.apiTypes.map((type: { name: string; image: string }) => (
-        <img key={type.name} src={type.image} alt={type.name} />))}
-
+          <h2>{pokemonDetail.name}</h2>
           
+            <p>Types</p>
+          <div className="type">
+            {pokemonDetail.apiTypes.map((type: { name: string; image: string }) => (
+            <img key={type.name} src={type.image} alt={type.name} />))}
+          </div>
+
+
+
 
           {/* ---- Toutes les évolutions ---- */}
           {evolutions.length > 0 && (
