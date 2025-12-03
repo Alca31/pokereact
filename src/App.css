@@ -8,19 +8,28 @@
 .App{
    color: white;
   display: grid;
+  max-height: 100vh;
+  overflow: hidden;
   grid-template-columns: 1fr 1fr;
 }
 
 .pokemon-list {
+  
   margin-top: 40px;
-  max-height: 100vh;
+  max-height: calc(100vh - 40px);
+  
   overflow-y: scroll;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap : 10px;
 }
 
+
+
 .pokemon-detail{
-  max-height: 100vh;
-  overflow-y: scroll;
+  max-height: 90vh;
+  overflow-y: auto;
   padding-right:10px;
 }
 
@@ -29,10 +38,11 @@
  background-color: black;
  display: flex;
  max-height: 120px;
- margin-bottom: 15px;
  justify-content: space-between;
 
 }
+
+
 
 .logo {
   height: 6em;
