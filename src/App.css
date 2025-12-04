@@ -17,7 +17,6 @@
   
   margin-top: 40px;
   max-height: calc(100vh - 40px);
-  
   overflow-y: scroll;
   padding-right: 10px;
   display: flex;
@@ -29,7 +28,7 @@
 
 .pokemon-detail{
   max-height: 90vh;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding-right:10px;
 }
 
